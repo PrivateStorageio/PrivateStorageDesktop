@@ -1,0 +1,40 @@
+[application]
+name = PrivateStorage
+description = PrivateStorage
+logo_icon = PrivateStorageLogo.png
+tray_icon = PrivateStorage.png
+tray_icon_sync = sync.gif
+
+[build]
+mac_bundle_identifier = io.privatestorage.PrivateStorage
+mac_icon = images/PrivateStorage.icns
+win_icon = images/PrivateStorage.ico
+linux_icon = images/PrivateStorage.svg
+
+[connection]
+default = production-grid
+
+[debug]
+log_maxlen = 2000000
+
+[features]
+grid_invites = false
+invites = false
+multiple_grids = false
+tor = false
+
+[help]
+docs_url = https://help.privatestorage.io
+issues_url = mailto:support@privatestorage.io
+
+[message]
+type = warning
+title = Warning: Possible Bugs Ahead!
+text = PrivateStorage is currently in <i>beta</i> and should not be considered stable software; as an early tester of this application and service, you may encounter bugs and performance issues while using it.<p>Please help us to improve PrivateStorage by reporting any problems to our team at <a href=mailto:support@privatestorage.io>support@privatestorage.io</a>.<p>Thanks for trying PrivateStorage!<br>
+
+[sign]
+mac_developer_id = PrivateStorage.io, LLC
+
+[wormhole]
+appid = tahoe-lafs.org/invite
+relay = ws://wormhole.tahoe-lafs.org:4000/v1
