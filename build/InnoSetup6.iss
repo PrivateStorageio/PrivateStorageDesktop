@@ -1,5 +1,5 @@
 #define MyAppName "PrivateStorage"
-#define MyAppVersion "0.12"
+#define MyAppVersion "0.14"
 
 [Setup]
 AppName={#MyAppName}
