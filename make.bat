@@ -17,6 +17,5 @@ call copy .\assets\PrivateStorage.png .\privatestorage\gridsync\resources\tahoe-
 call copy .\privatestorage\gridsync\resources\laptop.png .\privatestorage\gridsync\resources\laptop-with-icon.png
 call copy .\credentials\*.json .\privatestorage\gridsync\resources\providers\
 call copy .\build\config.txt .\privatestorage\gridsync\resources\
-call copy .\build\InnoSetup6.iss .\privatestorage\misc\
 call copy .\scripts\* .\privatestorage\
 goto :eof
