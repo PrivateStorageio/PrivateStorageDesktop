@@ -9,7 +9,6 @@ let
     { src = "${psio-src}/assets/PrivateStorage.png"; dst = "gridsync/resources/tahoe-lafs.png"; }
     { src = "${psio-src}/credentials/*.json"; dst = "gridsync/resources/providers/"; }
     { src = "${psio-src}/build/config.txt"; dst = "gridsync/resources/"; }
-    { src = "${psio-src}/build/InnoSetup6.iss"; dst = "misc/"; }
     { src = "${psio-src}/scripts/*"; dst = "./"; }
     { src = "gridsync/resources/laptop.png"; dst = "gridsync/resources/laptop-with-icon.png"; }
   ];
