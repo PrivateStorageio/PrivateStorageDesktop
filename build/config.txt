@@ -35,6 +35,10 @@ text = PrivateStorage is currently in <i>beta</i> and should not be considered s
 
 [sign]
 mac_developer_id = PrivateStorage.io, LLC
+gpg_key = 0x3416B3191931EE2E
+signtool_name = Private Storage.io, LLC
+signtool_sha1 = 4acad27db70c2347b4d430c6ebc8e7faf125683b
+signtool_timestamp_server = http://timestamp.digicert.com
 
 [wormhole]
 appid = tahoe-lafs.org/invite
