@@ -31,7 +31,7 @@ issues_url = mailto:support@privatestorage.io
 [message]
 type = warning
 title = Warning: Possible Bugs Ahead!
-text = PrivateStorage is currently in <i>beta</i> and should not be considered stable software; as an early tester of this application and service, you may encounter bugs and performance issues while using it.<p>Please help us to improve PrivateStorage by reporting any problems to our team at <a href=mailto:support@privatestorage.io>support@privatestorage.io</a> or on Signal at +1 724 200 8340.<p>Thanks for trying PrivateStorage!<br>
+text = PrivateStorage is currently in <i>beta</i> and should not be considered stable software; as an early tester of this application and service, you may encounter bugs and performance issues while using it.<p>Please help us to improve PrivateStorage by reporting any problems to our team at <a href=mailto:support@private.storage>support@private.storage</a> or on Signal at +1 724 200 8340.<p>Thanks for trying PrivateStorage!<br>
 
 [sign]
 mac_developer_id = PrivateStorage.io, LLC
