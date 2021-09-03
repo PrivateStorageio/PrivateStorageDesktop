@@ -10,7 +10,7 @@ call rmdir /s /q .\privatestorage
 goto :eof
 
 :source
-call git clone --depth 1 -b 238.zkap-auth-support https://github.com/gridsync/gridsync .\privatestorage
+call git clone --depth 1 -b 290.new-magic-folder https://github.com/gridsync/gridsync .\privatestorage
 call copy .\assets\PrivateStorage* .\privatestorage\images\
 call copy .\assets\PrivateStorage* .\privatestorage\gridsync\resources\
 call copy .\assets\PrivateStorage.png .\privatestorage\gridsync\resources\tahoe-lafs.png
