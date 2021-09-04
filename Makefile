@@ -12,5 +12,3 @@ source:
 	cp privatestorage/gridsync/resources/laptop.png privatestorage/gridsync/resources/laptop-with-icon.png
 	cp credentials/*.json privatestorage/gridsync/resources/providers/
 	cp build/config.txt privatestorage/gridsync/resources/
-	cp build/InnoSetup6.iss privatestorage/misc/
-	cp scripts/* privatestorage/
