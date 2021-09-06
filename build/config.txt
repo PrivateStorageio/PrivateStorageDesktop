@@ -16,7 +16,7 @@ version = 0.17a1
 default = production-grid
 
 [debug]
-log_maxlen = 2000000
+log_maxlen = 140000
 
 [features]
 grid_invites = false
