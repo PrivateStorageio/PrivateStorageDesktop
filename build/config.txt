@@ -26,7 +26,7 @@ tor = false
 
 [help]
 docs_url = https://help.privatestorage.io
-issues_url = mailto:support@privatestorage.io
+issues_url = mailto:support@private.storage
 
 [message]
 type = warning
