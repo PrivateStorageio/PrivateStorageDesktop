@@ -25,7 +25,7 @@ multiple_grids = false
 tor = false
 
 [help]
-docs_url = https://help.privatestorage.io
+docs_url = https://private.storage/support
 issues_url = mailto:support@private.storage
 
 [message]
