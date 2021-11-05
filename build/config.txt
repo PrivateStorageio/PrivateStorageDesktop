@@ -10,13 +10,13 @@ mac_bundle_identifier = io.privatestorage.PrivateStorage
 mac_icon = images/PrivateStorage.icns
 win_icon = images/PrivateStorage.ico
 linux_icon = images/PrivateStorage.svg
-version = 0.15
+version = 0.19
 
 [connection]
-default = production-grid
+default = staging-grid
 
 [debug]
-log_maxlen = 2000000
+log_maxlen = 140000
 
 [features]
 grid_invites = false
@@ -25,16 +25,20 @@ multiple_grids = false
 tor = false
 
 [help]
-docs_url = https://help.privatestorage.io
-issues_url = mailto:support@privatestorage.io
+docs_url = https://private.storage/support
+issues_url = mailto:support@private.storage
 
 [message]
 type = warning
 title = Warning: Possible Bugs Ahead!
-text = PrivateStorage is currently in <i>beta</i> and should not be considered stable software; as an early tester of this application and service, you may encounter bugs and performance issues while using it.<p>Please help us to improve PrivateStorage by reporting any problems to our team at <a href=mailto:support@privatestorage.io>support@privatestorage.io</a>.<p>Thanks for trying PrivateStorage!<br>
+text = PrivateStorage is currently in <i>beta</i> and should not be considered stable software; as an early tester of this application and service, you may encounter bugs and performance issues while using it.<p>Please help us to improve PrivateStorage by reporting any problems to our team at <a href=mailto:support@private.storage>support@private.storage</a> or on Signal at +1 724 200 8340.<p>Thanks for trying PrivateStorage!<br>
 
 [sign]
 mac_developer_id = PrivateStorage.io, LLC
+gpg_key = 0x3416B3191931EE2E
+signtool_name = Private Storage.io, LLC
+signtool_sha1 = 4acad27db70c2347b4d430c6ebc8e7faf125683b
+signtool_timestamp_server = http://timestamp.digicert.com
 
 [wormhole]
 appid = tahoe-lafs.org/invite
