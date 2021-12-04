@@ -1,0 +1,98 @@
+{
+    "gridsync": {
+        "branch": "master",
+        "description": "Synchronize local directories with Tahoe-LAFS storage grids",
+        "homepage": "",
+        "owner": "gridsync",
+        "repo": "gridsync",
+        "rev": "8875f446324b584f3773b9c0a0fcae93b430ba43",
+        "sha256": "1bh9sg6mwcyyc67pkyd3gmibwnz6hdirx42dgjf4c0w0awjp69in",
+        "type": "tarball",
+        "url": "https://github.com/gridsync/gridsync/archive/8875f446324b584f3773b9c0a0fcae93b430ba43.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "mach-nix": {
+        "branch": "master",
+        "description": "Create highly reproducible python environments",
+        "homepage": "",
+        "owner": "DavHau",
+        "repo": "mach-nix",
+        "rev": "31b21203a1350bff7c541e9dfdd4e07f76d874be",
+        "sha256": "0przsgmbbcnnqdff7n43zv5girix83ky4mjlxq7m2ksr3wyj2va2",
+        "type": "tarball",
+        "url": "https://github.com/DavHau/mach-nix/archive/31b21203a1350bff7c541e9dfdd4e07f76d874be.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "magic-folder": {
+        "branch": "main",
+        "description": "Tahoe-LAFS-based file synchronization",
+        "homepage": null,
+        "owner": "LeastAuthority",
+        "repo": "magic-folder",
+        "rev": "642c4692461701b90a07b8845a6b4732890b9e85",
+        "sha256": "0pb002n3dsyr1nxy5j1z4253x12h85sc34i71wby1fcw7jsg69xg",
+        "type": "tarball",
+        "url": "https://github.com/LeastAuthority/magic-folder/archive/642c4692461701b90a07b8845a6b4732890b9e85.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "niv": {
+        "branch": "master",
+        "description": "Easy dependency management for Nix projects",
+        "homepage": "https://github.com/nmattia/niv",
+        "owner": "nmattia",
+        "repo": "niv",
+        "rev": "5830a4dd348d77e39a0f3c4c762ff2663b602d4c",
+        "sha256": "1d3lsrqvci4qz2hwjrcnd8h5vfkg8aypq3sjd4g3izbc8frwz5sm",
+        "type": "tarball",
+        "url": "https://github.com/nmattia/niv/archive/5830a4dd348d77e39a0f3c4c762ff2663b602d4c.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixpkgs": {
+        "branch": "release-21.05",
+        "description": "Nix Packages collection",
+        "homepage": "",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "74bb9d68ac8257977062212b49c54697b3e498ea",
+        "sha256": "1h3ic61msf90lnwyc9s0k2w86xgsgcikflz9pga3mlc03x9gs2mx",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/74bb9d68ac8257977062212b49c54697b3e498ea.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "pypi-deps-db": {
+        "branch": "master",
+        "description": "Probably the most complete python dependency database",
+        "homepage": "",
+        "owner": "DavHau",
+        "repo": "pypi-deps-db",
+        "rev": "f137b1eb0d7a9a988d417d3533f5a6c78bb7128f",
+        "sha256": "0bwrpalfsn9s9863in5rphdcfwn4agj40b5w8fmv22a8rgrxvyhx",
+        "type": "tarball",
+        "url": "https://github.com/DavHau/pypi-deps-db/archive/f137b1eb0d7a9a988d417d3533f5a6c78bb7128f.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "tahoe-lafs": {
+        "branch": "master",
+        "description": "The Tahoe-LAFS decentralized secure filesystem.",
+        "homepage": "https://tahoe-lafs.org/",
+        "owner": "tahoe-lafs",
+        "repo": "tahoe-lafs",
+        "rev": "tahoe-lafs-1.15.1",
+        "sha256": "1kaz21gljxwwldfs8bigyzvqs1h70d66jlj01b6m2bwn98l50m0s",
+        "type": "tarball",
+        "url": "https://github.com/tahoe-lafs/tahoe-lafs/archive/tahoe-lafs-1.15.1.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "zkapauthorizer": {
+        "branch": "main",
+        "description": "a Tahoe-LAFS storage-system plugin which authorizes storage operations based on privacy-respecting tokens",
+        "homepage": "",
+        "owner": "PrivateStorageio",
+        "repo": "ZKAPAuthorizer",
+        "rev": "1d585ed2e1f8fa9dbdb726aaaece88300e25318d",
+        "sha256": "04qg8p843fzx0zskh2r85mkvdz40wl1flk93rl2vixr8za6nvx4n",
+        "type": "tarball",
+        "url": "https://github.com/PrivateStorageio/ZKAPAuthorizer/archive/1d585ed2e1f8fa9dbdb726aaaece88300e25318d.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    }
+}
