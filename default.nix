@@ -114,8 +114,11 @@ in
 
       gridsync-testing = mach-nix.mkPython {
         python = "python39";
+
+        # Get GridSync's testing dependencies into this environment.
+        # GridSync doesn't publish pytest.in upstream so we carry a version ourselves.
         # requirements = builtins.readFile "${gridsync-repo}/requirements/pytest.in";
-        requirements = builtins.readFile "./pytest.in";
+        requirements = builtins.readFile (./. + "/pytest.in");
       };
 
       gridsync-package =
