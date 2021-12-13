@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "gridsync",
         "repo": "gridsync",
-        "rev": "8875f446324b584f3773b9c0a0fcae93b430ba43",
-        "sha256": "1bh9sg6mwcyyc67pkyd3gmibwnz6hdirx42dgjf4c0w0awjp69in",
+        "rev": "62a3d95b2e7c573f69b244ed3185d15d3f48aad8",
+        "sha256": "028qcl2jnc7jhgwx55gsaxabn8c5f10y2qkliyakbz7b07plfr9z",
         "type": "tarball",
-        "url": "https://github.com/gridsync/gridsync/archive/8875f446324b584f3773b9c0a0fcae93b430ba43.tar.gz",
+        "url": "https://github.com/gridsync/gridsync/archive/62a3d95b2e7c573f69b244ed3185d15d3f48aad8.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mach-nix": {
@@ -89,10 +89,10 @@
         "homepage": "",
         "owner": "PrivateStorageio",
         "repo": "ZKAPAuthorizer",
-        "rev": "1d585ed2e1f8fa9dbdb726aaaece88300e25318d",
-        "sha256": "04qg8p843fzx0zskh2r85mkvdz40wl1flk93rl2vixr8za6nvx4n",
+        "rev": "41446070c99adf0092d619e6ba09ca76d0454ce1",
+        "sha256": "0ayrdcc5pyps6yf2dqqsyiq6xq0idkhkiyvyq0llql4bc1vjyxbf",
         "type": "tarball",
-        "url": "https://github.com/PrivateStorageio/ZKAPAuthorizer/archive/1d585ed2e1f8fa9dbdb726aaaece88300e25318d.tar.gz",
+        "url": "https://github.com/PrivateStorageio/ZKAPAuthorizer/archive/41446070c99adf0092d619e6ba09ca76d0454ce1.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
