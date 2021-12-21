@@ -10,7 +10,7 @@ mac_bundle_identifier = io.privatestorage.PrivateStorage
 mac_icon = images/PrivateStorage.icns
 win_icon = images/PrivateStorage.ico
 linux_icon = images/PrivateStorage.svg
-version = 0.23
+version = 0.24
 
 [connection]
 default = staging-grid
