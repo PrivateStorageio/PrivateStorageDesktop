@@ -43,3 +43,6 @@ signtool_timestamp_server = http://timestamp.digicert.com
 [wormhole]
 appid = tahoe-lafs.org/invite
 relay = ws://wormhole.tahoe-lafs.org:4000/v1
+
+[news:PrivateStorage Staging]
+check_delay_max = 60
