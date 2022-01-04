@@ -1,3 +1,4 @@
 pytest
 pytest-twisted
 pytest-cov
+pytest-qt

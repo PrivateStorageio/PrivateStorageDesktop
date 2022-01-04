@@ -6,7 +6,7 @@
         "owner": "gridsync",
         "repo": "gridsync",
         "rev": "62a3d95b2e7c573f69b244ed3185d15d3f48aad8",
-        "sha256": "028qcl2jnc7jhgwx55gsaxabn8c5f10y2qkliyakbz7b07plfr9z",
+        "sha256": "1s4fjir07rhi1k79h1ysggac5ysa94y9sijbyqx1z3f49kq033ny",
         "type": "tarball",
         "url": "https://github.com/gridsync/gridsync/archive/62a3d95b2e7c573f69b244ed3185d15d3f48aad8.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
@@ -29,10 +29,10 @@
         "homepage": null,
         "owner": "LeastAuthority",
         "repo": "magic-folder",
-        "rev": "642c4692461701b90a07b8845a6b4732890b9e85",
-        "sha256": "0pb002n3dsyr1nxy5j1z4253x12h85sc34i71wby1fcw7jsg69xg",
+        "rev": "9423ee1dd61517d70f3844fc89e61567259ff60d",
+        "sha256": "0n02azy37vqh0a1h355nspx79a13g6mrr4nmbra429j19ficvzn8",
         "type": "tarball",
-        "url": "https://github.com/LeastAuthority/magic-folder/archive/642c4692461701b90a07b8845a6b4732890b9e85.tar.gz",
+        "url": "https://github.com/LeastAuthority/magic-folder/archive/9423ee1dd61517d70f3844fc89e61567259ff60d.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -53,10 +53,10 @@
         "homepage": "",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "74bb9d68ac8257977062212b49c54697b3e498ea",
-        "sha256": "1h3ic61msf90lnwyc9s0k2w86xgsgcikflz9pga3mlc03x9gs2mx",
+        "rev": "0ea05f401f0b6192e65b057f775e977b79f083f6",
+        "sha256": "136i3i6lw1g275q6adnh065prf4vwg6syhhzx46l3cfcqa3da01w",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/74bb9d68ac8257977062212b49c54697b3e498ea.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/0ea05f401f0b6192e65b057f775e977b79f083f6.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "pypi-deps-db": {
@@ -77,10 +77,10 @@
         "homepage": "https://tahoe-lafs.org/",
         "owner": "tahoe-lafs",
         "repo": "tahoe-lafs",
-        "rev": "531fe30b11ad981c3bd8ff24a40ac95f3ff5cd19",
-        "sha256": "0c66ackxxjad0x7i430j5cwn0qb1z2cpkrr00b88ljlckiq1pgh3",
+        "rev": "tahoe-lafs-1.17.0",
+        "sha256": "0vjq7g1lfjd16y0iwnfsccp5k3q3av7wllkyqbsyd877a29nibzi",
         "type": "tarball",
-        "url": "https://github.com/tahoe-lafs/tahoe-lafs/archive/531fe30b11ad981c3bd8ff24a40ac95f3ff5cd19.tar.gz",
+        "url": "https://github.com/tahoe-lafs/tahoe-lafs/archive/tahoe-lafs-1.17.0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "zkapauthorizer": {
