@@ -3,7 +3,7 @@ let
   inherit (gridsync) mach-nix;
 in
   mach-nix.nixpkgs.mkShell {
-    python = "python27";
+    python = "python39";
     buildInputs = [
       gridsync.tahoe-lafs-env
       gridsync.magic-folder-env
