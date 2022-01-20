@@ -58,12 +58,15 @@ let
       # find: ‘hypothesis-6.32.1/hypothesis-python’: No such file or directory
       hypothesis = "wheel";
     };
+
+    privatestorage = import zkapauthorizer-repo { python = python3; };
+
   in
     rec {
       inherit mach-nix;
-      magic-folder =
+      magic-folder-app =
         let
-          inherit (import zkapauthorizer-repo { python = python3; }) mach-nix tahoe-lafs;
+          inherit (privatestorage) mach-nix tahoe-lafs;
         in
           mach-nix.buildPythonApplication {
             inherit providers;
@@ -188,10 +191,9 @@ let
         ];
       };
 
+      privatestorage-env = (import zkapauthorizer-repo { python = python3; }).privatestorage;
+
       desktopclient =
-        let
-          inherit (import zkapauthorizer-repo { python = python3; }) privatestorage;
-        in
         # Since we use this derivation in `environment.systemPackages`,
         # we create a derivation that has just the executables we use,
         # to avoid polluting the system PATH with all the executables
@@ -204,11 +206,11 @@ let
             ln -s ${gridsync}/bin/gridsync $out/bin/gridsync
 
             # GridSync needs tahoe-lafs and magic-folder.
-            ln -s ${privatestorage}/bin/tahoe $out/bin
-            ln -s ${magic-folder}/bin/magic-folder $out/bin
+            ln -s ${privatestorage-env}/bin/tahoe $out/bin
+            ln -s ${magic-folder-app}/bin/magic-folder $out/bin
 
             # Include some tools that are useful for debugging.
-            ln -s ${privatestorage}/bin/flogtool $out/bin
-            ln -s ${privatestorage}/bin/eliot-prettyprint $out/bin
+            ln -s ${privatestorage-env}/bin/flogtool $out/bin
+            ln -s ${privatestorage-env}/bin/eliot-prettyprint $out/bin
           '';
     }
