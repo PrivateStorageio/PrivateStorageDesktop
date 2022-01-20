@@ -191,7 +191,7 @@ let
         ];
       };
 
-      privatestorage-env = (import zkapauthorizer-repo { python = python3; }).privatestorage;
+      privatestorage-env = privatestorage.privatestorage;
 
       desktopclient =
         # Since we use this derivation in `environment.systemPackages`,
