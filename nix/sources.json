@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "gridsync",
         "repo": "gridsync",
-        "rev": "62a3d95b2e7c573f69b244ed3185d15d3f48aad8",
-        "sha256": "1s4fjir07rhi1k79h1ysggac5ysa94y9sijbyqx1z3f49kq033ny",
+        "rev": "c08ab4f71658bba54886f6053c777f4dee39f01e",
+        "sha256": "0jmg1l8picr83grvlx5prw1bsqzrfa0nvhzsspjrba24x46f9987",
         "type": "tarball",
-        "url": "https://github.com/gridsync/gridsync/archive/62a3d95b2e7c573f69b244ed3185d15d3f48aad8.tar.gz",
+        "url": "https://github.com/gridsync/gridsync/archive/c08ab4f71658bba54886f6053c777f4dee39f01e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mach-nix": {
@@ -24,15 +24,15 @@
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "magic-folder": {
-        "branch": "main",
+        "branch": "tahoe-lafs-small-pinned-range",
         "description": "Tahoe-LAFS-based file synchronization",
         "homepage": null,
         "owner": "LeastAuthority",
         "repo": "magic-folder",
-        "rev": "9423ee1dd61517d70f3844fc89e61567259ff60d",
-        "sha256": "0n02azy37vqh0a1h355nspx79a13g6mrr4nmbra429j19ficvzn8",
+        "rev": "e8da95ab32313fc9f9176291e2732a7c34ad0c1e",
+        "sha256": "0vr3m7clqjl24nmjk0s6inhkmg23dzfaackiql7padmyf7a3ng2r",
         "type": "tarball",
-        "url": "https://github.com/LeastAuthority/magic-folder/archive/9423ee1dd61517d70f3844fc89e61567259ff60d.tar.gz",
+        "url": "https://github.com/LeastAuthority/magic-folder/archive/e8da95ab32313fc9f9176291e2732a7c34ad0c1e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -77,10 +77,10 @@
         "homepage": "https://tahoe-lafs.org/",
         "owner": "tahoe-lafs",
         "repo": "tahoe-lafs",
-        "rev": "tahoe-lafs-1.17.0",
-        "sha256": "0vjq7g1lfjd16y0iwnfsccp5k3q3av7wllkyqbsyd877a29nibzi",
+        "rev": "tahoe-lafs-1.17.1",
+        "sha256": "0vzl8xz4iwbq7d7saa6rimzgwj23s3vfgr3f428rbg0wp7dshs9s",
         "type": "tarball",
-        "url": "https://github.com/tahoe-lafs/tahoe-lafs/archive/tahoe-lafs-1.17.0.tar.gz",
+        "url": "https://github.com/tahoe-lafs/tahoe-lafs/archive/tahoe-lafs-1.17.1.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "zkapauthorizer": {
@@ -89,10 +89,10 @@
         "homepage": "",
         "owner": "PrivateStorageio",
         "repo": "ZKAPAuthorizer",
-        "rev": "41446070c99adf0092d619e6ba09ca76d0454ce1",
-        "sha256": "0ayrdcc5pyps6yf2dqqsyiq6xq0idkhkiyvyq0llql4bc1vjyxbf",
+        "rev": "744a063ab76a677b259aa9022711113ffbab2545",
+        "sha256": "0mjna2xw9adn0v8jppwa78sq08pnkdvh2ysgnawkj93v360mldi5",
         "type": "tarball",
-        "url": "https://github.com/PrivateStorageio/ZKAPAuthorizer/archive/41446070c99adf0092d619e6ba09ca76d0454ce1.tar.gz",
+        "url": "https://github.com/PrivateStorageio/ZKAPAuthorizer/archive/744a063ab76a677b259aa9022711113ffbab2545.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

@@ -1,18 +1,7 @@
 let
   sources = import nix/sources.nix;
-  # nixpkgs 21.11 packages a version of pkgconfig that is broken on Python 2.7
-  # so supply our own.  mach-nix depends on this to set up its own build
-  # environment and cannot discover a working version from pypi the way it
-  # works for other dependencies.
-  fixPkgconfig = self: super: {
-    python27 = super.python27.override {
-      packageOverrides = python-self: python-super: {
-        pkgconfig = python-super.pythonPackages.callPackage ./pkgconfig.nix {};
-      };
-    };
-  };
 in
-{ pkgs ? import sources.nixpkgs { overlays = [ fixPkgconfig ]; }
+{ pkgs ? import sources.nixpkgs { }
 , pypiData ? sources.pypi-deps-db
 , mach-nix ? import sources.mach-nix { inherit pkgs pypiData; }
 , zkapauthorizer-source ? "zkapauthorizer"
@@ -23,7 +12,6 @@ in
 , gridsync-repo ? sources.${gridsync-source}
 }:
 let
-    python2 = "python27";
     python3 = "python39";
     lib = pkgs.lib;
     providers = {
@@ -47,8 +35,9 @@ let
       # - Incorrectly merged extras - https://github.com/DavHau/mach-nix/pull/334
       tqdm = "wheel";
 
-      # nixpkgs carries a patch that doesn't apply anymore
+      # nixpkgs carries some patches that doesn't apply anymore
       klein = "wheel";
+      pyyaml = "wheel";
 
       # It is so hard to build!
       pyqt5 = "wheel";
@@ -69,19 +58,16 @@ let
       # find: ‘hypothesis-6.32.1/hypothesis-python’: No such file or directory
       hypothesis = "wheel";
     };
-
-    inherit (pkgs.callPackage zkapauthorizer-repo { python = python2; }) privatestorage;
   in
     rec {
       inherit mach-nix;
-
       magic-folder =
         let
-          inherit (pkgs.callPackage zkapauthorizer-repo { python = python2; }) tahoe-lafs;
+          inherit (import zkapauthorizer-repo { python = python3; }) mach-nix tahoe-lafs;
         in
-          mach-nix.buildPythonApplication rec {
+          mach-nix.buildPythonApplication {
             inherit providers;
-            python = python2;
+            python = python3;
             name = "magic-folder";
             version = "0.0.1";
             src = magic-folder-repo;
@@ -173,11 +159,11 @@ let
           distro
 
           # Get a version of PyQt5 that's compatible with the version of the Qt5
-          # libraries available from the nixpkgs we're using.  If we change nixpkgs, we
-          # might need to change this pin as well.  Without this, mach-nix will
-          # just pull in the newest PyQt5 from PyPI (unless GridSync pins it otherwise)
-          # and chances are it will not play nicely with our version.
-          pyqt5 == 5.15.3
+          # libraries available from the nixpkgs we're using.  This expression
+          # should make this happen automatically even as the version of Qt5
+          # in nixpkgs changes.  We're ignoring the version that GridSync is
+          # asking for here, though.
+          pyqt5 == ${pkgs.qt5.qtbase.version}
         '';
         src = gridsync-repo;
 
@@ -202,13 +188,10 @@ let
         ];
       };
 
-      magic-folder-env = mach-nix.mkPython {
-        inherit providers;
-        python = python2;
-        packagesExtra = [ magic-folder ];
-      };
-
       desktopclient =
+        let
+          inherit (import zkapauthorizer-repo { python = python3; }) privatestorage;
+        in
         # Since we use this derivation in `environment.systemPackages`,
         # we create a derivation that has just the executables we use,
         # to avoid polluting the system PATH with all the executables
@@ -222,7 +205,7 @@ let
 
             # GridSync needs tahoe-lafs and magic-folder.
             ln -s ${privatestorage}/bin/tahoe $out/bin
-            ln -s ${magic-folder-env}/bin/magic-folder $out/bin
+            ln -s ${magic-folder}/bin/magic-folder $out/bin
 
             # Include some tools that are useful for debugging.
             ln -s ${privatestorage}/bin/flogtool $out/bin
