@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "gridsync",
         "repo": "gridsync",
-        "rev": "c08ab4f71658bba54886f6053c777f4dee39f01e",
-        "sha256": "0jmg1l8picr83grvlx5prw1bsqzrfa0nvhzsspjrba24x46f9987",
+        "rev": "fbeb65118520083bcfa5fab73f99c03ab2bafc1b",
+        "sha256": "1ynbngannbq77wxzrqrl3knyni0lb550a4rxaryq58vhlv0hkkpf",
         "type": "tarball",
-        "url": "https://github.com/gridsync/gridsync/archive/c08ab4f71658bba54886f6053c777f4dee39f01e.tar.gz",
+        "url": "https://github.com/gridsync/gridsync/archive/fbeb65118520083bcfa5fab73f99c03ab2bafc1b.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mach-nix": {
@@ -29,10 +29,10 @@
         "homepage": null,
         "owner": "LeastAuthority",
         "repo": "magic-folder",
-        "rev": "e8da95ab32313fc9f9176291e2732a7c34ad0c1e",
-        "sha256": "0vr3m7clqjl24nmjk0s6inhkmg23dzfaackiql7padmyf7a3ng2r",
+        "rev": "291bb742f0dfad48181fbf412180499f5ef8c52a",
+        "sha256": "09j5c2zrwwjf710jnnsy268wn1bkm0r99gjszpbpa9rcw1x0amhk",
         "type": "tarball",
-        "url": "https://github.com/LeastAuthority/magic-folder/archive/e8da95ab32313fc9f9176291e2732a7c34ad0c1e.tar.gz",
+        "url": "https://github.com/LeastAuthority/magic-folder/archive/291bb742f0dfad48181fbf412180499f5ef8c52a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
