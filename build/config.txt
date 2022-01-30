@@ -18,6 +18,9 @@ default = staging-grid
 [debug]
 log_maxlen = 140000
 
+[defaults]
+autostart = true
+
 [features]
 grid_invites = false
 invites = false
