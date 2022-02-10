@@ -68,7 +68,7 @@ let
         let
           inherit (privatestorage) mach-nix tahoe-lafs;
         in
-          mach-nix.buildPythonApplication {
+          mach-nix.buildPythonApplication rec {
             inherit providers;
             python = python3;
             name = "magic-folder";
@@ -82,6 +82,14 @@ let
                 }
               )
             ];
+
+            postInstall = let
+              python = pkgs.${python3};
+              versionfile = "${python.sitePackages}/magic_folder/_version.py";
+            in
+              ''
+              echo 'version = "${version}"' > $out/${versionfile}
+            '';
           };
 
       gridsync = pkgs.python39Packages.toPythonApplication gridsync-package;
@@ -171,7 +179,7 @@ let
         src = gridsync-repo;
 
         # Get qtWrapperArgs set, even though wrapQtAppsHook won't wrap the
-        # gridsync executable for us.
+        # python command line entrypoint for us.
         nativeBuildInputs = [ pkgs.qt5.wrapQtAppsHook ];
 
         # For some reason pyqt5 fails to build like this if we don't add this

@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "gridsync",
         "repo": "gridsync",
-        "rev": "fbeb65118520083bcfa5fab73f99c03ab2bafc1b",
-        "sha256": "1ynbngannbq77wxzrqrl3knyni0lb550a4rxaryq58vhlv0hkkpf",
+        "rev": "bfe0b35211774f848ee17107a2f401f59a43ebdb",
+        "sha256": "0ydbwydyk2d1qicqb6d6as3gj0krl9bhps36n38zsfbgkvdh3wzb",
         "type": "tarball",
-        "url": "https://github.com/gridsync/gridsync/archive/fbeb65118520083bcfa5fab73f99c03ab2bafc1b.tar.gz",
+        "url": "https://github.com/gridsync/gridsync/archive/bfe0b35211774f848ee17107a2f401f59a43ebdb.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mach-nix": {
@@ -24,15 +24,15 @@
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "magic-folder": {
-        "branch": "tahoe-lafs-small-pinned-range",
+        "branch": "612.tahoe-req",
         "description": "Tahoe-LAFS-based file synchronization",
         "homepage": null,
-        "owner": "LeastAuthority",
+        "owner": "meejah",
         "repo": "magic-folder",
-        "rev": "291bb742f0dfad48181fbf412180499f5ef8c52a",
-        "sha256": "09j5c2zrwwjf710jnnsy268wn1bkm0r99gjszpbpa9rcw1x0amhk",
+        "rev": "fbd3197672df76cf19e869e77313b01649b02292",
+        "sha256": "0gnhyp3ylicnh76i6arh7y0vsyjjy0c73m3vxbdbjrdc5s48m4y7",
         "type": "tarball",
-        "url": "https://github.com/LeastAuthority/magic-folder/archive/291bb742f0dfad48181fbf412180499f5ef8c52a.tar.gz",
+        "url": "https://github.com/meejah/magic-folder/archive/fbd3197672df76cf19e869e77313b01649b02292.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
