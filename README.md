@@ -1,6 +1,6 @@
 # PrivateStorage Desktop
 
-This repository contains the various assets, grid-credentials, scripts, and other files that are ultimately required to build _PrivateStorage Desktop_ -- a "[PrivateStorage.io](https://privatestorage.io/)"-branded fork of the [Gridsync](http://gridsync.io/) application.
+This repository contains the various assets, grid-credentials, scripts, and other files that are ultimately required to build _PrivateStorage Desktop_ -- a "[PrivateStorage.io](https://private.storage/)"-branded fork of the [Gridsync](http://gridsync.io/) application.
 
 ## Building (for local use)
 
