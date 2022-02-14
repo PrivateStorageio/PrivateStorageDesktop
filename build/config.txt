@@ -13,7 +13,7 @@ linux_icon = images/PrivateStorage.svg
 version = 0.26
 
 [connection]
-default = staging-grid
+default = production-grid
 
 [debug]
 log_maxlen = 140000
