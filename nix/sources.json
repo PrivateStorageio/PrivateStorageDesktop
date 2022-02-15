@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "gridsync",
         "repo": "gridsync",
-        "rev": "bfe0b35211774f848ee17107a2f401f59a43ebdb",
-        "sha256": "0ydbwydyk2d1qicqb6d6as3gj0krl9bhps36n38zsfbgkvdh3wzb",
+        "rev": "69604f3a1ced33ec52f6cf9f4854c2b232d2e6d0",
+        "sha256": "0vclj5i5v9gphxg7v3qbrw9w95q833a2ja2xc2i5y77lj2lhq7pl",
         "type": "tarball",
-        "url": "https://github.com/gridsync/gridsync/archive/bfe0b35211774f848ee17107a2f401f59a43ebdb.tar.gz",
+        "url": "https://github.com/gridsync/gridsync/archive/69604f3a1ced33ec52f6cf9f4854c2b232d2e6d0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mach-nix": {
