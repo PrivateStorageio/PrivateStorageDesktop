@@ -40,12 +40,14 @@
 #     download_1_17_1()
 #     return path_to_that
 
-import pytest_twisted
+from pytest_twisted import blockon, ensureDeferred
 import gridsync.cli as gridsync_api
-from gridsync.supervisor import Supervisor
 from pytest import fixture
-from attrs import define, Factory
-from pathlib import Path
+from twisted.internet.defer import Deferred
+from .lib import IPaymentServer, PaymentServer, provision_tahoe_storage, LocalGrid, RemoteGrid, provision_running_payment_server
+
+def blockOnCoroutine(coro):
+    return blockon(Deferred.fromCoroutine(coro))
 
 @fixture(scope="session")
 def payment_server_exe(request):
@@ -56,52 +58,39 @@ def pay_for_voucher_exe(request):
     return request.config.getoption("pay-for-voucher-exe")
 
 @fixture(scope="session")
-def tahoe_exe(request):
-    return request.config.getoption("tahoe-exe")
+def tahoe_client_exe(request):
+    return request.config.getoption("tahoe-client-exe")
+
+@fixture(scope="session")
+def tahoe_server_exe(request):
+    return request.config.getoption("tahoe-server-exe")
 
 @fixture(scope="session")
 def signing_key():
     # You can get a string like this from PaymentServer's PaymentServer-generate-key
     return "NAQBkEEUKPDtq8af5anlHvWMjeSVoH56RnpCTy70QwA="
 
-
-@define
-class PaymentServer:
-    exe: Path
-    pay_for_voucher_path: Path
-    db_path: Path
-    signing_key_path: Path
-    supervisor: Supervisor = Factory(Supervisor)
-
-    async def start(self):
-        await self.supervisor.start([
-            self.exe,
-            "--issuer", "ristretto",
-            "--signing-key-path", self.signing_key_path,
-            "--database", "sqlite3",
-            "--database-path", self.db_path,
-            "--stripe-key-path", "/dev/null",
-        ])
-
-    def pay_for_voucher(self, voucher):
-        check_call([pay_for_voucher_path, self.db_path, voucher, "made-up-charge-id"])
+@fixture(scope="session")
+def client_root(tmp_path_factory):
+    return tmp_path_factory.mktemp("client")
 
 @fixture(scope="session")
-def payment_server_root(tmp_path_factory):
-    return tmp_path_factory.mktemp("paymentserver")
+def grid_root(tmp_path_factory):
+    return tmp_path_factory.mktemp("grid")
 
 @fixture(scope="session")
-def payment_server_database_path(payment_server_root):
-    return payment_server_root / "paymentserver.sqlite3"
+def payment_server_root(grid_root):
+    root = grid_root / "grid"
+    root.mkdir()
+    return root
 
 @fixture(scope="session")
-def payment_server(payment_server_database_path, pay_for_voucher_exe, payment_server_exe, signing_key, cheat_code, payment_server_root): # -> IPaymentServer:
+def payment_server(pay_for_voucher_exe, payment_server_exe, signing_key, cheat_code, payment_server_root) -> IPaymentServer:
     # run payment_server_exe and return abstraction around it
     if cheat_code == "local":
-        signing_key_path = payment_server_root / "signing-key.ristretto"
-        with open(signing_key_path, "wt") as f:
-            f.write(signing_key)
-        return PaymentServer(payment_server_exe, pay_for_voucher_exe, payment_server_database_path, signing_key_path)
+        return blockOnCoroutine(provision_running_payment_server(
+            payment_server_root, signing_key, payment_server_exe, pay_for_voucher_exe,
+        ))
     else:
         raise NotImplementedError("Do something with Selenium maybe")
 
@@ -109,94 +98,87 @@ def payment_server(payment_server_database_path, pay_for_voucher_exe, payment_se
 def cheat_code(request):
     return request.config.getoption("grid-flavour")
 
-
-
-def create_settings_from_local_grid(storage_server, payment_server):
-    return {
-        "version": 2,
-        "nickname": "local",
-        "newscap": None,
-        "zkap_unit_name": "GB-month",
-        "zkap_unit_multiplier": 0.001,
-        "zkap_payment_url_root": "https://localhost/you-are-not-running-a-payment-website",
-        "shares-needed": "1",
-        "shares-happy": "1",
-        "shares-total": "1",
-        "storage": {
-            storage_server.node_id: {
-                "anonymous-storage-FURL": "pb://@tcp:/",
-                "nickname": "storage001",
-                "storage-options": [{
-                    "name": storage_server.plugin_name,
-                    "ristretto-issuer-root-url": payment_server.api_root,
-                    "storage-server-FURL": storage_server.storage_furl,
-                    "pass-value": 1000000,
-                    "default-token-count": 50000,
-                    "lease.crawl-interval.mean": 3600,
-                    "lease.crawl-interval.range": 60,
-                    "lease.min-time-remaining": 2592000,
-                    "allowed-public-keys": payment_server.ristretto_public_key,
-                }],
-            }
-        }
-    }
-
 @fixture(scope="session")
-# @pytest.parmetrize(cheat_code=["0-staging-grid", "0-production-grid", "local"])
-def grid_configuration(cheat_code, payment_server):
+def grid(cheat_code, tahoe_server_exe, payment_server, grid_root):
     if cheat_code == "local":
-        # Spin up a grid, including payment server, and return config
-        # describing it
-        return create_settings_from_local_grid(some_storage_servers, payment_server)
+        storage = blockOnCoroutine(provision_tahoe_storage(
+            grid_root / "storage",
+            tahoe_server_exe,
+        ))
+        return LocalGrid(storage, payment_server)
     else:
-        return load_settings_from_cheatcode(cheat_code)
+        return RemoteGrid.from_cheat_code(cheat_code)
 
 @fixture(scope="session")  #(scope="module")
-def tahoe_client(grid_configuration, tahoe_exe, tmp_path):
-    return pytest_twisted.blockon(
-        Deferred.fromCoroutine(
-            gridsync_api.provision_tahoe(
-                grid_configuration,
-                tahoe_exe,
-                tmp_path,
-            ),
-        ),
-    )
+def tahoe_client(grid, tahoe_client_exe, client_root):
+    # XXX If provision_tahoe runs the wrong tahoe command and tahoe exits with
+    # an error status, provision_tahoe raises an exception, gives a gross
+    # stack trace going through many layers of Twisted and pytest, and then
+    # dumps a *truncated* argv and the tahoe process output into the pytest
+    # failure report.  Report such failures better.  For example, it would be
+    # cool if we could extract a complete list of commands executed so far.
+    # This might reveal simple errors all by itself or, by letting a developer
+    # run those commands directly, might make it easier to reproduce the
+    # problem in an easily-inspected environment (or share those commands with
+    # another developer in another environment, compare them to what's run on
+    # CI, etc)
+
+    async def provision_running_client():
+        tahoe = await gridsync_api.provision_tahoe(
+            grid.settings,
+            tahoe_client_exe,
+            client_root / "tahoe-client",
+        )
+
+        # XXX This *very* easily leaks the started processes if something goes
+        # wrong (and maybe even if it doesn't!).
+        await gridsync_api.run_tahoe(tahoe)
+        return tahoe
+
+    return blockOnCoroutine(provision_running_client())
 
 @fixture(scope="function")
-def provision_tahoe_client(grid_configuration, tahoe_exe):
+def provision_tahoe_client(grid, tahoe_client_exe):
     def provision(nodedir):
         return gridsync_api.provision_tahoe(
-            grid_configuration,
-            tahoe_exe,
+            grid.settings,
+            tahoe_client_exe,
             nodedir,
         )
     return provision
 
-
+# XXX There's no easy way to see how the test is progressing through its many
+# time-consuming steps.
+@ensureDeferred
 async def test_recovery_cleartext(
     tahoe_client,
     provision_tahoe_client,
-    grid_configuration,
     payment_server,
     tmp_path_factory,
 ):
+    print("Adding voucher")
     voucher = await gridsync_api.add_voucher(tahoe_client)
+    print("Paying for voucher")
     await payment_server.pay_for_voucher(voucher)
-    await gridsync_api.wait_for_redemption(voucher)
+    print("Waiting for redemption")
+    await gridsync_api.wait_for_redemption(tahoe_client, voucher)
 
-    filename = mktemp()
+    print("Creating recovery key")
+    filename = tmp_path_factory.mktemp("recovery-key")
     await gridsync_api.create_recovery_key(
         tahoe_client.nodedir,
         filename,
         passphrase=None,
     )
+    print("Uploading data")
     application_data = b"Hello, world!" * 20
     appdata_cap = await tahoe_client.upload(application_data)
 
-    target_tahoe_client = provision_tahoe_client(
+    print("Provisioning tahoe client")
+    target_tahoe_client = await provision_tahoe_client(
         tmp_path_factory.mktemp("target-tahoe"),
     )
+
     gridsync_api.restore_from_recovery_key(
         target_tahoe_client,
         filename,
@@ -204,4 +186,4 @@ async def test_recovery_cleartext(
     )
     assert (await target_tahoe_client.download(appdata_cap)) == application_data
     newcap = await target_tahoe_client.upload(b"some other application data that is long enough" * 5)
-    assert newcap_is_really_a_thing
+    assert isinstance(newcap, str)
