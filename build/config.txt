@@ -6,7 +6,7 @@ tray_icon = PrivateStorage.png
 tray_icon_sync = sync.gif
 
 [build]
-mac_bundle_identifier = io.privatestorage.PrivateStorage
+mac_bundle_identifier = storage.private.PrivateStorage
 mac_icon = images/PrivateStorage.icns
 win_icon = images/PrivateStorage.ico
 linux_icon = images/PrivateStorage.svg
@@ -37,7 +37,7 @@ title = Warning: Possible Bugs Ahead!
 text = PrivateStorage is currently in <i>beta</i> and should not be considered stable software; as an early tester of this application and service, you may encounter bugs and performance issues while using it.<p>Please help us to improve PrivateStorage by reporting any problems to our team at <a href=mailto:support@private.storage>support@private.storage</a> or on Signal at +1 724 200 8340.<p>Thanks for trying PrivateStorage!<br>
 
 [sign]
-mac_developer_id = PrivateStorage.io, LLC
+mac_developer_id = PrivateStorage.io Inc (WK2W3JQC34)
 gpg_key = 0x3416B3191931EE2E
 signtool_name = Private Storage.io, LLC
 signtool_sha1 = 08b4c160a598e394321161223299341ce7ca0b34
