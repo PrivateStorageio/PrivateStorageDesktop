@@ -27,6 +27,8 @@ tor = false
 [help]
 docs_url = https://permanent.private.storage/support
 issues_url = mailto:support@private.storage
+recovery_url = https://permanent.private.storage/recoverykey
+zkaps_url = https://permanent.private.storage/zkaps
 
 [logging]
 enabled = true
