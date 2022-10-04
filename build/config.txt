@@ -31,6 +31,11 @@ tor = false
 docs_url = https://permanent.private.storage/support
 issues_url = mailto:support@private.storage
 
+[logging]
+enabled = true
+max_bytes = 10000000
+backup_count = 1
+
 [message]
 type = warning
 title = Warning: Possible Bugs Ahead!
