@@ -35,11 +35,6 @@ enabled = true
 max_bytes = 10000000
 backup_count = 1
 
-[message]
-type = warning
-title = Warning: Possible Bugs Ahead!
-text = PrivateStorage is currently in <i>beta</i> and should not be considered stable software; as an early tester of this application and service, you may encounter bugs and performance issues while using it.<p>Please help us to improve PrivateStorage by reporting any problems to our team at <a href=mailto:support@private.storage>support@private.storage</a> or on Signal at +1 724 200 8340.<p>Thanks for trying PrivateStorage!<br>
-
 [sign]
 mac_developer_id = PrivateStorage.io Inc (WK2W3JQC34)
 gpg_key = 0x3416B3191931EE2E
