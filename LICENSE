@@ -1,3 +1,11 @@
+This repository contains assets, grid-credentials, scripts, and other files for building PrivateStorage Desktop -- a "PrivateStorage.io"-branded fork of the Gridsync application (https://github.com/gridsync/gridsync).
+
+The artwork and the company and product names are specific to PrivateStorage.io Inc and are NOT provided for re-use per the GPLv3 clauses 7 c, d and e to prevent misrepresentation.
+(If you build on this repo, do not call it PrivateStorage.)
+
+
+
+
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
