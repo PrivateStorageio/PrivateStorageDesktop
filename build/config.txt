@@ -20,7 +20,6 @@ autostart = true
 
 [features]
 grid_invites = false
-invites = false
 multiple_grids = false
 tor = false
 
