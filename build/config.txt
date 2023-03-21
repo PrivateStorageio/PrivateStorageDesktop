@@ -10,7 +10,7 @@ mac_bundle_identifier = storage.private.PrivateStorage
 mac_icon = images/PrivateStorage.icns
 win_icon = images/PrivateStorage.ico
 linux_icon = images/PrivateStorage.svg
-version = 22.11.0
+version = 23.3.0
 
 [connection]
 default = production-grid
