@@ -38,7 +38,7 @@ backup_count = 1
 mac_developer_id = PrivateStorage.io Inc (WK2W3JQC34)
 gpg_key = 0x3416B3191931EE2E
 signtool_name = PrivateStorage.io Inc.
-signtool_sha1 = 0106a907faedcc908a47aca9636faea9b0b161e9
+signtool_sha1 = 6c4c6995f85c97966439f89a116de6e33bcbe7db
 signtool_timestamp_server = http://timestamp.digicert.com
 
 [wormhole]
