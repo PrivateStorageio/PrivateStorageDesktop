@@ -22,6 +22,7 @@ autostart = true
 grid_invites = false
 multiple_grids = false
 tor = false
+zkapauthorizer = true
 
 [help]
 docs_url = https://permanent.private.storage/support
